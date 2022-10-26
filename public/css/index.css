@@ -1,36 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
+
+/*
+Para las fonts los dos estilos son
+    font-weight: 200;
+    font-weight: 300;
+*/
 * {
+    font-family: 'Poppins', sans-serif;
     margin: 0;
 }
+
+html {
+    width: 100vw;
+    height: 100vh;
+}
+
+body{
+    background-color: #161516;
+    height: 100vh;
+    width: 100vw;
+    font-weight: 100;
+    color: #e5cca2;
+    margin: 0;
+}
+
+/*HEADER OF PAGE
+    -Includes
+    -Title
+    -Add button
+*/
 
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: gray;
+    background-color: #1f1e1f;
     width: 100vw;
     height: 10vh;
 }
 
+button {
+    z-index: 10;
+}
+
+.navbar-Title{
+    padding-left: 10px ;
+    background-color: transparent;
+    font-weight: 300;
+}
+
+h2{
+    background-color: transparent;
+    font-weight: 100;
+}
+
+button {
+    color: #e5cca2;
+    height: 40px;
+    width: 200px;
+    border-style: hidden;
+    border-radius: 3px;
+    margin-right: 30px;
+    background-color: #1f1e1f;
+    cursor: pointer;
+    transition: 300ms ease-in-out;
+}
+
+button:hover {
+    color: #161516;
+    background-color: #e5cca2;
+} 
+
+/*MAIN POST SECTION*/
+
+.post-board {
+    margin: auto;
+    width: 100%;
+    background-color: #161516;
+}
+
+.postCard {
+    margin: auto;
+    display: flex;
+    background-color: #1f1e1f;
+    border-radius: 15px;
+    border: 1px solid transparent;
+    height: 40vh;
+    width: 80vw;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 3vw 0px 3vw;
+    margin: auto;
+    margin-top: 3vh;
+    transition: 300ms ease-in-out;
+}
+
+.postCard:hover{
+    opacity: 1;
+    border-color: #e5cca2;
+}
+
+
+/*PROBLEMA NO SE QUITA EL GRADIENTE DE ATRAS CUANDO QUITAS EL MOUSE*/
+.postCard::before{
+    background: radial-gradient(
+            800px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255,255,255,0.06),
+            transparent 40%
+    );
+    border-radius: inherit;
+    content: "";
+    height: 100%;
+    left:0px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    transition: opacity 400ms;
+    width: 100%;
+    z-index: 2;
+}
+.postCard:hover::before {
+    opacity: 1;
+}
+
+.interactionSection {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    /*AQUI VA
+    -TITULO
+    -AUTHOR
+    -CONITNUE READINF BTN
+    -DELETE BTN
+    */
+    z-index: 3;
+}
+
+.imagePosts {
+    height: 90%;
+    width: 25%;
+    border-radius: 15px;
+}
+
+/*PARTE DE NEW POSTS*/
 .newPostForm {
     position: absolute;
+    border-radius: 15px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: gray;
+    background-color: #191a18;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 50vw;
-    height: 80vh;
+    width: 80vw;
+    height: 95vh;
+    z-index: 11;
+}
+
+.newPostForm input, textarea {
+    color: #e5cca2;
+    background-color: #0f0f0f;
+    border: none;
 }
 
 .newPostForm form {
-    height: 90%;
+    height: 95%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.newPostForm form div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.newPostBtn {
+    background-color: #161516;
+}
+
+.cancelBtn {
+    margin: auto;
+    margin-top: 15px;
+    height: 50px;
+    width: 100px;
+    border-radius:15px;
+    border-style: solid;
+    border-color: transparent ;
+    background-color: #0f0f0f;
+    color:#e5cca2;
+    cursor: pointer;
+    transition: 300ms ease-in-out;
+
+}
+
+.cancelBtn:hover {
+    color: #161516;
+    background-color: #e5cca2;
+}
+
+.sendBtn {
+    height: 50px;
+    width: 100px;
+    border-radius:15px;
+    border-style: solid;
+    border-color: transparent ;
+    background-color: #0f0f0f;
+    color:#e5cca2;
+    cursor: pointer;
+    transition: 300ms ease-in-out;
+}
+
+.sendBtn:hover {
+    color: #161516;
+    background-color: #e5cca2;
 }
 
 .blackDiv {
@@ -41,6 +231,7 @@
     height: 100vh;
     background-color: black;
     opacity: 90%;
+    z-index: 11;
 }
 
 .hidden {
@@ -48,14 +239,37 @@
     opacity: 0;
 }
 
-.postCard {
-    background-color: gray;
-    border-radius: 25px;
-    width: 20vw;
-    height: 30vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: 2vw;
+
+
+
+
+.continueBtn{
+    color: #e5cca2;
+    border-style: hidden;
+    border-radius: 3px;
+    background-color: #161516;
+    cursor: pointer;
+    transition: 300ms ease-in-out;
+}
+
+.continueBtn:hover {
+    color: #161516;
+    background-color: #e5cca2;
+}
+
+.deleteBtn{
+    color: #e5cca2;
+    border-style: hidden;
+    border-radius: 3px;
+    background-color: #161516;
+    cursor: pointer;
+    transition: 300ms ease-in-out;
+}
+.deleteBtn:hover{
+    color: #161516;
+    background-color: #e5cca2;
+}
+
+.aboutBtn{
+    cursor: pointer;
 }

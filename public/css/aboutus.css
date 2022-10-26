@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+body{
+    background-color: #161516;
+    height: 100vh;
+    width: 100vw;
+    font-weight: 100;
+    color: #e5cca2;
+    margin: 0;
+}
+
+.newPostBtn {
+    opacity: 0;
+    cursor: default;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1f1e1f;
+    width: 100vw;
+    height: 10vh;
+}
+
+.navbar-Title{
+    padding-left: 10px ;
+    background-color: transparent;
+    font-weight: 300;
+}
+
+button {
+    color: #e5cca2;
+    height: 40px;
+    width: 200px;
+    border-style: hidden;
+    border-radius: 3px;
+    margin-right: 30px;
+    background-color: #1f1e1f;
+    cursor: pointer;
+    z-index: 9;
+    transition: 300ms ease-in-out;
+}
+
+button:hover {
+    color: #161516;
+    background-color: #e5cca2;
+}
+
+.newPostBtn {
+    background-color: #161516;
+}
+
+.homeBtn {
+    cursor: pointer;
+}
+
+.aboutBtn {
+    color: #161516;
+    background-color: #e5cca2;
+    cursor: default;
+}
+
